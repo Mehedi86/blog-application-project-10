@@ -6,22 +6,18 @@ export default function Page() {
 
     useEffect(() => {
         async function fetchPosts() {
-            try {
                 const res = await fetch("/api/showPost");
                 const data = await res.json();
                 setPosts(data);
-            } catch (err) {
-                console.error("Error fetching posts:", err);
-            }
         }
         fetchPosts();
     }, []);
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold mb-4">📜 All Posts</h1>
+            <h1 className="text-2xl font-bold mb-4">📜 Total Posts: {posts.length}</h1>
             {posts.length === 0 ? (
-                <p>No posts found</p>
+                <p className="text-2xl font-bold p-4 w-1/3 bg-red-400 text-white">No posts found</p>
             ) : (
                 <div className="space-y-4">
                     {posts.map((post) => (
