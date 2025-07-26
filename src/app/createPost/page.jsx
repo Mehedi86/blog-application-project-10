@@ -26,10 +26,10 @@ export default function Page() {
         setTitle('');
         setContent('');
       } else {
-        setMessage(`❌ Error: ${data.error || 'Something went wrong'}`);
+        setMessage(`Error: ${data.error || 'Something went wrong'}`);
       }
     } catch (error) {
-      setMessage('❌ Failed to connect to server');
+      setMessage('Failed to connect to server');
     } finally {
       setLoading(false);
     }
@@ -39,7 +39,7 @@ export default function Page() {
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Create Blog Post</h1>
 
-      {/* ✅ Show feedback messages */}
+      
       {message && (
         <div className="mb-4 p-2 rounded bg-gray-100 text-gray-700">
           {message}
